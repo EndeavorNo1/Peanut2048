@@ -31,8 +31,9 @@ cc.Class({
                 block.width=this.blocksize;
                 block.height=this.blocksize;
                 this.bg.addChild(block);
-                block.setPosition(cc.Vec2(x,y));
-                this.positions[i][j]=cc.Vec2(x,y);
+                block.setPosition(cc.v2(x,y));
+                cc.log(block,this.positions,cc.v2(x,y))
+                this.positions[i][j]=cc.v2(x,y);
                 x+=this.gap+this.blocksize;
                 block.getComponent('block').setNumber(0);
             }
@@ -62,6 +63,8 @@ cc.Class({
         }
         cc.log(this.blocks);
         cc.log(this.data);
+        this.addBlock();
+        this.addBlock();
         this.addBlock();
     },
     updateScore(number){
